@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modernes Gesundheitsportal für Berlin mit Notfallnummern, Anlaufstellen und smarten Filtern nach Bezirk und Kategorie."
+    />
+    <title>Gesundheitsportal Berlin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="badge">Land Berlin · Digital</p>
+          <h1>Gesundheitsportal Berlin</h1>
+          <p class="lead">
+            Das moderne Portal für Notfallhilfe, medizinische Versorgung und Prävention in allen
+            Berliner Bezirken.
+          </p>
+          <div class="hero-actions">
+            <a href="#angebote" class="button button-primary">Angebote finden</a>
+            <a href="#notfall" class="button button-secondary">Notfallkontakte</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Schnellübersicht">
+          <h2>Schnellübersicht</h2>
+          <ul>
+            <li><strong>112</strong> Rettungsdienst & Notfall</li>
+            <li><strong>116117</strong> Ärztlicher Bereitschaftsdienst</li>
+            <li><strong>24/7</strong> Berliner Krisendienst</li>
+            <li><strong id="district-count">0 Bezirke</strong> lokal filterbare Angebote</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="notfall" aria-labelledby="notfall-title" class="section">
+        <div class="section-head">
+          <h2 id="notfall-title">Notfall & Soforthilfe</h2>
+          <p>Im Ernstfall zählt jede Minute – hier finden Sie die wichtigsten Kontakte auf einen Blick.</p>
+        </div>
+
+        <div class="cards grid-3">
+          <article class="card emergency-card">
+            <span class="pill danger">Sofort</span>
+            <h3>Akuter Notfall</h3>
+            <p>Bei lebensbedrohlichen Situationen sofort den Rettungsdienst alarmieren.</p>
+            <a href="tel:112" class="cta">112 anrufen</a>
+          </article>
+
+          <article class="card emergency-card">
+            <span class="pill info">Medizinisch</span>
+            <h3>Ärztlicher Bereitschaftsdienst</h3>
+            <p>Hilfe außerhalb der Sprechzeiten, wenn keine unmittelbare Lebensgefahr besteht.</p>
+            <a href="tel:116117" class="cta">116117 anrufen</a>
+          </article>
+
+          <article class="card emergency-card">
+            <span class="pill support">Krisenhilfe</span>
+            <h3>Krisendienst Berlin</h3>
+            <p>Telefonische und persönliche Unterstützung bei seelischen Krisen rund um die Uhr.</p>
+            <a href="https://www.berliner-krisendienst.de" target="_blank" rel="noreferrer"
+              >Zur Website</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section id="angebote" aria-labelledby="angebote-title" class="section">
+        <div class="section-head">
+          <h2 id="angebote-title">Gesundheitsangebote in Berlin finden</h2>
+          <p>Filtern Sie schnell nach Bezirk, Kategorie oder Stichwort und entdecken Sie passende Angebote.</p>
+        </div>
+
+        <form id="filter-form" class="filters" aria-label="Filter für Gesundheitsangebote">
+          <label>
+            Bezirk
+            <select id="district-filter" name="district">
+              <option value="alle">Alle Bezirke</option>
+            </select>
+          </label>
+
+          <label>
+            Kategorie
+            <select id="category-filter" name="category">
+              <option value="alle">Alle Kategorien</option>
+              <option value="Hausarzt">Hausarzt</option>
+              <option value="Kinderheilkunde">Kinderheilkunde</option>
+              <option value="Psychische Gesundheit">Psychische Gesundheit</option>
+              <option value="Prävention">Prävention</option>
+              <option value="Pflegeberatung">Pflegeberatung</option>
+            </select>
+          </label>
+
+          <label>
+            Stichwort
+            <input id="search-filter" name="search" type="search" placeholder="z. B. Impfungen" />
+          </label>
+
+          <button id="reset-filters" type="button" class="button button-tertiary">Filter zurücksetzen</button>
+        </form>
+
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+        <div id="results" class="cards grid-2" aria-live="polite"></div>
+        <p id="empty-state" class="empty hidden">Keine Angebote für diese Filterkombination gefunden.</p>
+      </section>
+
+      <section aria-labelledby="vorsorge-title" class="section">
+        <div class="section-head">
+          <h2 id="vorsorge-title">Vorsorge in Berlin</h2>
+          <p>Prävention stärkt langfristig Ihre Gesundheit – diese Tipps helfen im Alltag.</p>
+        </div>
+        <ul class="tips">
+          <li>Jährliche Vorsorgeuntersuchungen beim Hausarzt wahrnehmen.</li>
+          <li>Impfausweis regelmäßig prüfen und Auffrischungen rechtzeitig einplanen.</li>
+          <li>Kostenlose Bewegungsangebote in Parks und Vereinen nutzen.</li>
+          <li>Bei psychischer Belastung frühzeitig Beratung oder Therapie suchen.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <p>Gesundheitsportal Berlin · Demo-Version</p>
+        <a href="#top">Nach oben</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
