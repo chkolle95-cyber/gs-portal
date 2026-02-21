@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="App-ähnliches Gesundheitsportal für Berlin mit Notfallhilfe, Arzt-/Einrichtungssuche, Apotheken und Vorsorgetipps."
+    />
+    <title>Gesundheitsportal Berlin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body id="top">
+    <div class="bg-blur bg-blur-1"></div>
+    <div class="bg-blur bg-blur-2"></div>
+
+    <header class="app-shell glass">
+      <div class="container topbar">
+        <a class="brand" href="index.html">🩺 Gesundheitsportal Berlin</a>
+        <nav class="nav-links" aria-label="Hauptnavigation">
+          <a class="active" href="index.html">Anlaufstellen</a>
+          <a href="tipps.html">Vorsorge-Tipps</a>
+          <a href="apotheken.html">Apotheken</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container page-stack">
+      <section class="hero glass" aria-labelledby="hero-title">
+        <p class="badge">Berlin · Digital Health</p>
+        <h1 id="hero-title">Gesundheit schnell finden – modern wie eine App</h1>
+        <p class="lead">
+          Notfallnummern, Ärzt:innen, Kliniken und Beratungsstellen in Berlin – intelligent filterbar
+          nach Bezirk, Kategorie und Thema.
+        </p>
+        <div class="hero-actions">
+          <a href="#angebote" class="button button-primary">Jetzt suchen</a>
+          <a href="#notfall" class="button button-secondary">Notfallkontakte</a>
+        </div>
+      </section>
+
+      <section id="notfall" class="glass section" aria-labelledby="notfall-title">
+        <div class="section-head">
+          <h2 id="notfall-title">Notfall & Soforthilfe</h2>
+          <p>Im Notfall sofort handeln. Diese Kontakte sollten immer griffbereit sein.</p>
+        </div>
+        <div class="cards grid-3">
+          <article class="card soft-card">
+            <span class="pill danger">Akut</span>
+            <h3>Rettungsdienst</h3>
+            <p>Lebensbedrohliche Situationen, schwere Unfälle, akute Atemnot.</p>
+            <a class="cta" href="tel:112">112 anrufen</a>
+          </article>
+          <article class="card soft-card">
+            <span class="pill info">Ärztlich</span>
+            <h3>Bereitschaftsdienst</h3>
+            <p>Medizinische Hilfe außerhalb normaler Praxiszeiten.</p>
+            <a class="cta" href="tel:116117">116117 anrufen</a>
+          </article>
+          <article class="card soft-card">
+            <span class="pill support">Psychisch</span>
+            <h3>Berliner Krisendienst</h3>
+            <p>Rund um die Uhr Hilfe in seelischen Krisen.</p>
+            <a href="https://www.berliner-krisendienst.de" target="_blank" rel="noreferrer">Zur Website</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="angebote" class="glass section" aria-labelledby="angebote-title">
+        <div class="section-head">
+          <h2 id="angebote-title">Ärzt:innen & medizinische Einrichtungen</h2>
+          <p>
+            Recherchierte Beispiele aus Berlin: Hausarztpraxen, Fachärzte, Kliniken,
+            Gesundheitsämter, Pflege- und Krisenangebote.
+          </p>
+        </div>
+
+        <form id="filter-form" class="filters" aria-label="Filter für Gesundheitsangebote">
+          <label>
+            Bezirk
+            <select id="district-filter" name="district">
+              <option value="alle">Alle Bezirke</option>
+            </select>
+          </label>
+
+          <label>
+            Kategorie
+            <select id="category-filter" name="category">
+              <option value="alle">Alle Kategorien</option>
+              <option value="Hausarzt">Hausarzt</option>
+              <option value="Facharzt">Facharzt</option>
+              <option value="Klinik">Klinik</option>
+              <option value="Kinderheilkunde">Kinderheilkunde</option>
+              <option value="Psychische Gesundheit">Psychische Gesundheit</option>
+              <option value="Prävention">Prävention</option>
+              <option value="Pflegeberatung">Pflegeberatung</option>
+            </select>
+          </label>
+
+          <label>
+            Stichwort
+            <input id="search-filter" name="search" type="search" placeholder="z. B. Impfung, Kardiologie" />
+          </label>
+
+          <button id="reset-filters" type="button" class="button button-tertiary">Filter zurücksetzen</button>
+        </form>
+
+        <p id="result-count" class="result-count" aria-live="polite"></p>
+        <div id="results" class="cards grid-2" aria-live="polite"></div>
+        <p id="empty-state" class="empty hidden">Keine Treffer gefunden. Bitte Filter anpassen.</p>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Gesundheitsportal Berlin · Demo · <a href="#top">Nach oben</a></p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
